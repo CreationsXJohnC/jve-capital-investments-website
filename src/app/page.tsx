@@ -1,9 +1,18 @@
 import ContactForm from "../components/ContactForm";
 import About from "../components/About";
+import Hero from "../components/Hero";
+import Services from "../components/Services";
+import TrustedLogos from "../components/TrustedLogos";
+import Testimonials from "../components/Testimonials";
+import Footer from "../components/Footer";
 
 export default function Page() {
   return (
     <main>
+      <Hero />
+      <TrustedLogos />
+      <Services />
+
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/10 to-transparent" />
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -40,8 +49,10 @@ export default function Page() {
           </div>
         </div>
       </section>
-      {/* new About section */}
+
       <About />
+      <Testimonials />
+      <Footer />
     </main>
   );
 }
