@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -12,21 +13,12 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="relative h-8 w-8 overflow-hidden rounded">
-              <Image
-                src="/assets/brand/JVE Capital - Logo .jpg"
-                alt="JVE Capital logo"
-                fill
-                sizes="32px"
-                className="object-cover"
-                priority
-              />
-            </div>
-            <span className="text-lg font-semibold tracking-wide text-white">
+        <div className="flex h-20 items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 -ml-6">
+            <Logo size="xl" variant="pngWhite" />
+            <span className="text-lg font-semibold tracking-wide text-black">
               JVE Capital Investments LLC
             </span>
           </Link>
@@ -38,8 +30,8 @@ export default function Navbar() {
                 className={
                   "text-sm font-medium transition-colors " +
                   (pathname === item.href
-                    ? "text-white"
-                    : "text-gray-300 hover:text-white")
+                    ? "text-black"
+                    : "text-black/70 hover:text-black")
                 }
               >
                 {item.label}
@@ -47,7 +39,7 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
-              className="rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-black shadow-sm hover:bg-gray-100"
+              className="rounded-md bg-brand px-3 py-1.5 text-sm font-semibold text-black shadow-sm hover:bg-brand-light"
             >
               Get In Touch
             </a>
