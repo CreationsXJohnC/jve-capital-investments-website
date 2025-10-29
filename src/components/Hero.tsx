@@ -1,4 +1,5 @@
 import ContactForm from "./ContactForm";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -23,12 +24,12 @@ export default function Hero() {
  Whether you're envisioning a large-scale renovation, a community restoration, or a new build, our team brings the professionalism, expertise, and commitment needed to turn your ideas into lasting structures.
             </p>
             <div className="mt-10 flex items-center gap-4">
-              <a
-                href="#gallery"
+              <Link
+                href="/gallery"
                 className="rounded-full border border-brand-muted px-6 py-3 text-base font-semibold text-white hover:bg-black"
               >
                 View Projects
-              </a>
+              </Link>
             </div>
           </div>
           {/* Right: Contact form, half width on large screens */}
