@@ -18,17 +18,17 @@ export default function About() {
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">About the CEO</h2>
+          <h2 className="text-brand text-3xl font-bold sm:text-4xl lg:text-5xl">About the CEO</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             <div className="flex items-start gap-4 lg:col-span-3">
-              <div className="relative h-40 w-40 overflow-hidden rounded-full ring-2 ring-white/20 flex-shrink-0">
+              <div className="relative h-36 w-36 overflow-hidden rounded-full ring-2 ring-white/20 flex-shrink-0 p-1">
                 <Image
                   src="/assets/team/Jordan Edmunds Profile Pic.jpeg"
                   alt="Jordan Edmunds, CEO of JVE Capital Investments LLC"
                   fill
                   priority
-                  sizes="160px"
+                  sizes="144px"
                   className="object-cover object-top"
                 />
               </div>
@@ -44,15 +44,9 @@ export default function About() {
                     href="/docs/Jordan Edmunds - Resume (FINAL).pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-black shadow-sm hover:bg-gray-100"
+                    className="rounded-md bg-brand px-3 py-1.5 text-sm font-semibold text-black shadow-sm hover:bg-brand-light transition"
                   >
                     View Resume
-                  </a>
-                  <a
-                    href="/docs/JVE Capital Investments LLC - One Pager.docx"
-                    className="rounded-md border border-white/10 px-3 py-1.5 text-sm text-white hover:bg-white/10"
-                  >
-                    Download One-Pager
                   </a>
                 </div>
               </div>
@@ -61,7 +55,7 @@ export default function About() {
             <div className="w-full rounded-lg border border-white/10 bg-white/5 p-4 text-sm text-gray-300">
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-white">Commercial Experience</h3>
+                  <h3 className="text-brand">Commercial Experience</h3>
                   <ul className="mt-2 list-disc space-y-1 pl-5">
                     <li>Tenant fit-outs & build-outs</li>
                     <li>Retail, fitness, and office renovations</li>
@@ -70,7 +64,7 @@ export default function About() {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-white">Residential Experience</h3>
+                  <h3 className="text-brand">Residential Experience</h3>
                   <ul className="mt-2 list-disc space-y-1 pl-5">
                     <li>Kitchen & bath remodels</li>
                     <li>Interior reconfiguration & finish carpentry</li>

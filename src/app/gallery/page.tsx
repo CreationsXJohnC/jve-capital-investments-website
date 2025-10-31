@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import GalleryViewer from "../../components/GalleryViewer";
+import GalleryViewer from "@/components/GalleryViewer";
 
 type Collection = {
   name: string;

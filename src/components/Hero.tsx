@@ -16,7 +16,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
           {/* Left: Hero text */}
           <div>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h1 className="text-brand text-4xl font-semibold tracking-tight sm:text-5xl">
               Building Excellence with Integrity, Precision, and Vision
             </h1>
             <p className="mt-6 text-lg text-slate-300">

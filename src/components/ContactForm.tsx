@@ -110,7 +110,7 @@ export default function ContactForm() {
           <div className="sm:col-span-2 flex items-center justify-between gap-3">
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:bg-gray-100 disabled:opacity-60"
+              className="inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:bg-brand disabled:opacity-60"
               disabled={status.type === "loading"}
             >
               {status.type === "loading" ? "Sending…" : "Get a Quote"}

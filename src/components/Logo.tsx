@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 type LogoProps = {
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "sm" | "md" | "lg" | "xl" | "xxl";
   variant?: "svg" | "png" | "pngWhite";
   alt?: string;
   priority?: boolean;
@@ -15,6 +15,7 @@ const sizeMap = {
   md: { container: "h-8 w-32", sizes: "128px" },
   lg: { container: "h-12 w-48", sizes: "192px" },
   xl: { container: "h-16 w-60", sizes: "240px" },
+  xxl: { container: "h-24 w-80", sizes: "320px" },
 } as const;
 
 export default function Logo({
