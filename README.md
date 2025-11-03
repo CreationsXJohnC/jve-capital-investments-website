@@ -50,3 +50,22 @@ The contact form submits to `/api/contact` and uses [Resend](https://resend.com)
 If you deploy to Vercel:
 - Set `RESEND_API_KEY` in Vercel Project Settings → Environment Variables.
 - Redeploy for changes to take effect.
+
+## YouTube Channel Videos
+
+The homepage Testimonials section can automatically feature your latest YouTube uploads.
+
+- Set your channel ID in `.env.local`:
+
+```
+NEXT_PUBLIC_YT_CHANNEL_ID=UCxxxxxxxxxxxxxxxx
+```
+
+How to find your channel ID:
+- If your channel URL looks like `https://www.youtube.com/channel/UC...`, copy the `UC...` part.
+- If your channel URL uses a handle like `https://www.youtube.com/@yourhandle`, open your channel page, view page source, and search for `"channelId"` — it will be the `UC...` value.
+
+Notes:
+- After updating `.env.local`, restart the dev server (`npm run dev`).
+- In production (e.g., Vercel), set `NEXT_PUBLIC_YT_CHANNEL_ID` in Project Settings → Environment Variables.
+- Thumbnails are loaded from `i.ytimg.com` and are whitelisted in `next.config.ts`.
