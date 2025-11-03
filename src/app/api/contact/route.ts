@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: NextRequest) {
   try {
+    // Lazily initialize Resend to avoid build-time errors when RESEND_API_KEY is not set
+    const apiKey = process.env.RESEND_API_KEY;
+    const resend = apiKey ? new Resend(apiKey) : null;
     const contentType = req.headers.get("content-type") || "";
 
     let name = "";
@@ -105,6 +106,10 @@ export async function POST(req: NextRequest) {
     `;
 
     // For initial testing, Resend supports `onboarding@resend.dev`. Use a verified domain later.
+    if (!resend) {
+      return NextResponse.json({ error: "Email service not configured. Set RESEND_API_KEY." }, { status: 500 });
+    }
+
     const { data, error } = await resend.emails.send({
       from: "JVE Capital Website <onboarding@resend.dev>",
       to: "jve.capital@gmail.com",

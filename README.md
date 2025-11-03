@@ -34,9 +34,31 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Follow these steps to deploy this site on Vercel:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Link the GitHub repo
+  - Go to https://vercel.com/new and import `CreationsXJohnC/jve-capital-investments-website`.
+  - Framework will auto-detect as `Next.js`. No extra build config needed.
+
+- Set environment variables (Production and Preview)
+  - `RESEND_API_KEY`: Resend API key for the contact form.
+  - `NEXT_PUBLIC_YT_CHANNEL_ID`: YouTube channel ID (optional; enables Latest Videos).
+  - Use `.env.example` as a reference.
+
+- Email sending
+  - For testing, the API uses `onboarding@resend.dev` and will work without domain verification.
+  - For production, verify your domain in Resend and update the `from` address in `src/app/api/contact/route.ts`.
+
+- Build and deploy
+  - Push to `main` (or your chosen branch); Vercel will build and deploy automatically.
+  - A successful local build (`npm run build`) indicates Vercel will build cleanly.
+
+- Post-deploy checks
+  - Visit your deployment URL and test the Contact form.
+  - Confirm YouTube thumbnails load (we whitelist `i.ytimg.com` in `next.config.ts`).
+  - After changing env vars, trigger a redeploy.
+
+Learn more: [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying) and [Vercel docs](https://vercel.com/docs).
 
 ## Email Setup (Contact Form)
 
@@ -49,11 +71,12 @@ The contact form submits to `/api/contact` and uses [Resend](https://resend.com)
 
 If you deploy to Vercel:
 - Set `RESEND_API_KEY` in Vercel Project Settings → Environment Variables.
+- Optionally set `NEXT_PUBLIC_YT_CHANNEL_ID` to enable Latest Videos.
 - Redeploy for changes to take effect.
 
 ## YouTube Channel Videos
 
-The homepage Testimonials section can automatically feature your latest YouTube uploads.
+The homepage includes a "Featured Video" and a "Latest Videos" grid sourced from your channel.
 
 - Set your channel ID in `.env.local`:
 
