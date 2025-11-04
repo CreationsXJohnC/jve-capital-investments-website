@@ -1,11 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
   try {
-    // Lazily initialize Resend to avoid build-time errors when RESEND_API_KEY is not set
-    const apiKey = process.env.RESEND_API_KEY;
-    const resend = apiKey ? new Resend(apiKey) : null;
+    // Lazily initialize SMTP to avoid build-time errors when env vars are not set
+    const host = process.env.SMTP_HOST || "";
+    const portStr = process.env.SMTP_PORT || "";
+    const user = process.env.SMTP_USER || "";
+    const pass = process.env.SMTP_PASS || "";
+    const toEmail = process.env.CONTACT_TO || "jve.capital@gmail.com";
+
+    const port = Number(portStr) || 465;
+    const secure = port === 465; // true for 465, false for other ports
+
+    const smtpConfigured = host && user && pass;
+    const transporter = smtpConfigured
+      ? nodemailer.createTransport({
+          host,
+          port,
+          secure,
+          auth: { user, pass },
+        })
+      : null;
     const contentType = req.headers.get("content-type") || "";
 
     let name = "";
@@ -105,25 +121,23 @@ export async function POST(req: NextRequest) {
       </div>
     `;
 
-    // For initial testing, Resend supports `onboarding@resend.dev`. Use a verified domain later.
-    if (!resend) {
-      return NextResponse.json({ error: "Email service not configured. Set RESEND_API_KEY." }, { status: 500 });
+    if (!transporter) {
+      return NextResponse.json(
+        { error: "Email service not configured. Set SMTP_* and CONTACT_TO." },
+        { status: 500 }
+      );
     }
 
-    const { data, error } = await resend.emails.send({
-      from: "JVE Capital Website <onboarding@resend.dev>",
-      to: "jve.capital@gmail.com",
+    const info = await transporter.sendMail({
+      from: `JVE Capital Website <${user}>`,
+      to: toEmail,
       replyTo: email,
       subject,
       html,
-      attachments,
+      attachments: attachments?.map((a) => ({ filename: a.filename, content: a.content })),
     });
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
-    }
-
-    return NextResponse.json({ ok: true, id: data?.id });
+    return NextResponse.json({ ok: true, id: info.messageId });
   } catch (err) {
     return NextResponse.json(
       { error: err instanceof Error ? err.message : "Server error" },
