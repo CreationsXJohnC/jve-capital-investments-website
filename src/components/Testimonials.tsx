@@ -24,13 +24,13 @@ export default function Testimonials() {
     <section className="bg-black text-white">
       <div className="mx-auto max-w-6xl px-6 py-16 space-y-10">
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold tracking-tight">What Clients Say</h2>
+          <h2 className="text-brand text-3xl font-bold tracking-tight text-center sm:text-4xl lg:text-left">What Clients Say</h2>
         </div>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 justify-items-center lg:grid-cols-3 lg:justify-items-stretch">
           {testimonials.map((t, idx) => (
-            <div key={idx} className="rounded-lg bg-brand-dark/30 p-8 shadow">
+            <div key={idx} className="w-full max-w-2xl rounded-lg bg-brand-dark/30 p-8 shadow">
               <p className="text-lg text-slate-200">“{t.quote}”</p>
               <p className="mt-4 text-sm text-slate-400">— {t.author}{t.company ? `, ${t.company}` : ""}</p>
             </div>

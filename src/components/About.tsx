@@ -18,18 +18,18 @@ export default function About() {
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="space-y-6">
-          <h2 className="text-brand text-3xl font-bold sm:text-4xl lg:text-5xl">About the CEO</h2>
+          <h2 className="text-brand text-3xl font-bold text-center sm:text-4xl lg:text-5xl lg:text-left">About the CEO</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             <div className="flex items-start gap-4 lg:col-span-3">
-              <div className="relative h-36 w-36 overflow-hidden rounded-full ring-2 ring-white/20 flex-shrink-0 p-1">
+              <div className="flex-shrink-0 mt-1">
                 <Image
-                  src="/assets/team/Jordan Edmunds Profile Pic.jpeg"
+                  src="/assets/team/Jordan Edmunds Profile Pic-no background.png"
                   alt="Jordan Edmunds, CEO of JVE Capital Investments LLC"
-                  fill
+                  width={150}
+                  height={150}
                   priority
-                  sizes="144px"
-                  className="object-cover object-top"
+                  className="object-contain fade-bottom"
                 />
               </div>
               <div className="flex-1">
@@ -52,8 +52,8 @@ export default function About() {
               </div>
             </div>
 
-            <div className="w-full rounded-lg border border-white/10 bg-white/5 p-4 text-sm text-gray-300">
-              <div className="space-y-4">
+            <div className="w-full max-w-md mx-auto md:max-w-2xl md:mx-auto lg:max-w-none lg:mx-0 rounded-lg border border-white/10 bg-white/5 p-4 text-sm text-gray-300">
+              <div className="space-y-4 md:grid md:grid-cols-2 md:gap-6 md:space-y-0 md:items-start md:justify-center lg:grid-cols-1 lg:gap-0 lg:space-y-4 lg:justify-start">
                 <div>
                   <h3 className="text-brand">Commercial Experience</h3>
                   <ul className="mt-2 list-disc space-y-1 pl-5">

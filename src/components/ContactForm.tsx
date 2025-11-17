@@ -82,7 +82,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="w-full">
+    <section id="contact" className="w-full font-geist">
       <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur sm:p-8">
         <h2 className="text-xl font-semibold text-white">Get In Touch</h2>
         <p className="mt-1 text-sm text-gray-300">

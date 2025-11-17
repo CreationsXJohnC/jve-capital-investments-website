@@ -1,5 +1,85 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Light_Italic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Semibold_Italic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Bold_Italic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("/assets/fonts/fonnts.com-Bookmania_Black_Italic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -8,7 +88,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "Bookmania";
   --font-mono: var(--font-geist-mono);
   /* Brand palette */
   --color-black: #000000;
@@ -32,6 +112,10 @@ body {
   font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
+.font-geist {
+  font-family: var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
 /* Ensure all links show pointer cursor on hover */
 a:hover {
   cursor: pointer;
@@ -42,6 +126,16 @@ button:hover,
 [role="button"]:hover {
   cursor: pointer;
 }
+p:hover,
+li:hover,
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+  cursor: default;
+}
 /* Subtle text outline for brand title in navbar */
 .text-outline {
   text-shadow: -0.5px 0 #000, 0 0.5px #000, 0.5px 0 #000, 0 -0.5px #000;
@@ -51,4 +145,9 @@ button:hover,
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.9);
   text-shadow: -1px 0 rgba(0, 0, 0, 0.85), 0 1px rgba(0, 0, 0, 0.85),
     1px 0 rgba(0, 0, 0, 0.85), 0 -1px rgba(0, 0, 0, 0.85);
+}
+
+.fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
