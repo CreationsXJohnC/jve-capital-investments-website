@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "JVE Capital Investments LLC",
@@ -30,7 +23,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.google.com" />
         <link rel="preconnect" href="https://i.ytimg.com" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-black text-white font-sans`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} bg-black text-white font-sans`}>
         <Navbar />
         {children}
       </body>
